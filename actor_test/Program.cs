@@ -5,7 +5,7 @@ using Akka.Actor;
 
 namespace actor_test
 {
-    internal class Program
+    internal static class Program
     {
         public static void Main(string[] args)
         {

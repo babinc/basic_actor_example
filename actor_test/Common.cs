@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-
-namespace actor_test
+﻿namespace actor_test
 {
     public sealed class Common
     {
@@ -21,14 +17,13 @@ namespace actor_test
         #endregion
 
         #region methods
-
-        
         public SimpleMessage UnboxMessage(object message)
         {
             return message is SimpleMessage ? (SimpleMessage) message : SimpleMessage.None;
         }
         #endregion
 
+        #region static methods
         public static Common Instance
         {
             get
@@ -43,5 +38,6 @@ namespace actor_test
                 }
             }
         }
+        #endregion
     }
 }
