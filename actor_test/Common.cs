@@ -1,18 +1,33 @@
-﻿namespace actor_test
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+
+namespace actor_test
 {
     public sealed class Common
     {
+        #region field
         private static Common _instance = null;
         private static readonly object Padlock = new object();
+        #endregion
+        
+        #region Properties
+        #endregion
 
+        #region Constructor
         public Common()
         {
         }
+        #endregion
 
-        public Messages UnboxMessage(object message)
+        #region methods
+
+        
+        public SimpleMessage UnboxMessage(object message)
         {
-            return message is Messages ? (Messages) message : Messages.None;
+            return message is SimpleMessage ? (SimpleMessage) message : SimpleMessage.None;
         }
+        #endregion
 
         public static Common Instance
         {

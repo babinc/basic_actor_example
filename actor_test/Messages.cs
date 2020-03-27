@@ -1,9 +1,16 @@
-﻿namespace actor_test
+﻿using System;
+using System.Collections.Generic;
+
+namespace actor_test
 {
-    public enum Messages
+    public class AddMessage
     {
-        PrintReference,
-        MessageTwo,
-        None,
+        public List<int> Values { get; set; }
+    }
+
+    public enum SimpleMessage
+    {
+        Print,
+        None
     }
 }

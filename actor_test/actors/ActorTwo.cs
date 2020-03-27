@@ -1,21 +1,31 @@
 ﻿using System;
 using Akka.Actor;
 
-namespace actor_test
+namespace actor_test.actors
 {
     public class ActorTwo : UntypedActor
     {
         protected override void OnReceive(object message)
         {
-            var messageEnum = Common.Instance.UnboxMessage(message);
-            
-            switch (messageEnum)
+            EvaluateComplexMessages(message);
+
+            EvaluateSimpleMessages(message);
+        }
+        
+        private static void EvaluateComplexMessages(object message)
+        {
+        }
+
+        private static void EvaluateSimpleMessages(object message)
+        {
+            var simpleMessage = Common.Instance.UnboxMessage(message);
+            switch (simpleMessage)
             {
-                case Messages.PrintReference:
+                case SimpleMessage.Print:
                     IActorRef secondRef = Context.ActorOf(Props.Empty);
-                    Console.WriteLine($"Second Ref: {secondRef}");
+                    Console.WriteLine($"second ref: {secondRef}");
                     break;
-                case Messages.None:
+                case SimpleMessage.None:
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
